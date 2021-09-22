@@ -1,0 +1,21 @@
+<?php
+class Db
+{
+
+    private $dbhost = "localhost";
+    private $dbuser = "user1";
+    private $dbport = "3306";
+    private $dbpass = "r00tme";
+    private $dbname = "icinga2";
+
+    public function connect()
+    {
+
+        $mysql_connect_str = "mysql:host=$this->dbhost;port=$this->dbport;dbname=$this->dbname";
+        $dbConncetion = new PDO($mysql_connect_str, $this->dbuser, $this->dbpass);
+
+        return $dbConncetion;
+    }
+
+
+}

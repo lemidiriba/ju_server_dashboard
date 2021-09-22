@@ -1,0 +1,10 @@
+{
+  "require": {
+    "slim/slim": "3.0",
+    "slim/php-view": "2.2.1"
+  },
+  "config": {
+    "disable-tls": true,
+    "secure-http": false
+  }
+}

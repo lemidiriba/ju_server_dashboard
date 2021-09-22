@@ -1,0 +1,49 @@
+<?php
+class Db
+{
+
+    private $dbhost = "localhost";
+    private $dbuser = "user1";
+    private $dbport = "3306";
+    private $dbpass = "r00tme";
+    private $dbname = "icinga2";
+
+    public function connect()
+    {
+
+        $mysql_connect_str = "mysql:host=$this->dbhost;port=$this->dbport;dbname=$this->dbname";
+        $dbConncetion = new PDO($mysql_connect_str, $this->dbuser, $this->dbpass);
+
+        return $dbConncetion;
+    }
+
+    $servername = "localhost";
+    $username = "voip";
+    $password = "V01p@ju";
+    $dbname = "voip";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_errno) {
+  die("Connection failed: ");
+}
+//$sql="select * from fxo where last_changed=1 order by fxo_line";
+$sql="select * from fxo where last_changed=1 and patton in(1,2) order by fxo_line";
+
+$result=$conn->query($sql);
+
+
+    $res=[];
+$result = $conn->query($sql);
+
+
+    // output data of each row
+    while($row =$result->fetch_assoc()) {
+      $res[]=$row;
+    }
+    echo json_encode($res);
+ 
+
+
+
+}
